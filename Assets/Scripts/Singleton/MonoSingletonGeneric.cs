@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MonoSingletonGeneric1<T> : MonoBehaviour where T:MonoBehaviour
+public class MonoSingletonGeneric<T> : MonoBehaviour where T:MonoBehaviour
 {
     static T instance;
     static object m_lock = new Object();
