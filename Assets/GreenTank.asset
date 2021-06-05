@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankTypes: 2
   tankName: Green Tank
-  speed: 50
+  movementSpeed: 30
+  rotationSpeed: 80
   health: 100
-  tankView: {fileID: -1528434701881042059, guid: 3c4e4245a1ec3514fab48d2846b23efe,
+  damage: 0
+  tankView: {fileID: -5082949513263328896, guid: 3c4e4245a1ec3514fab48d2846b23efe,
     type: 3}

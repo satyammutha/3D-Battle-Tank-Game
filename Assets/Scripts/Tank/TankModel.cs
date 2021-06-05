@@ -2,10 +2,10 @@
 {
     public class TankModel
     {
-        private TankController tankController;
-
         public TankTypes tankTypes { get; private set; }
-        public float speed { get; private set; }
+        public string tankName { get; private set; }
+        public float movementSpeed { get; private set; }
+        public float rotationSpeed { get; private set; }
         public float health { get; private set; }
         public float damage { get; private set; }
 
@@ -13,10 +13,11 @@
         public TankModel(TankScriptableObject tankScriptableObject)
         {
             tankTypes = tankScriptableObject.tankTypes;
-            speed = tankScriptableObject.speed;
+            tankName = tankScriptableObject.tankName;
+            movementSpeed = tankScriptableObject.movementSpeed;
+            rotationSpeed = tankScriptableObject.rotationSpeed;
             health = tankScriptableObject.health;
             damage = tankScriptableObject.damage;
         }
-        public int SpeedLive { get { return (int)tankScriptableObject.speed; } }
     }
 }

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankTypes: 3
   tankName: Blue Tank
-  speed: 35
+  movementSpeed: 25
+  rotationSpeed: 50
   health: 75
   damage: 25
-  tankView: {fileID: -1528434701881042059, guid: 3c4e4245a1ec3514fab48d2846b23efe,
+  tankView: {fileID: -5082949513263328896, guid: 3c4e4245a1ec3514fab48d2846b23efe,
     type: 3}
