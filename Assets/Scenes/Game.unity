@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 1165463218}
   - component: {fileID: 1165463217}
   - component: {fileID: 1165463221}
+  - component: {fileID: 1165463222}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -262,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165463216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000010376145, y: 2.0622969, z: -9.061439}
+  m_LocalPosition: {x: -0.00000017881393, y: 0.98265576, z: -9.036118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1346012425}
@@ -302,6 +303,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1165463222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165463216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c655b78e5ee54fb98d41219d73c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 1411939117}
 --- !u!1 &1227554108
 GameObject:
   m_ObjectHideFlags: 3
@@ -620,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 100499690}
-  tankScriptableObject: {fileID: 11400000, guid: 774e5c7a2e2fe3a4697b178ce14bb1bc,
+  tankScriptableObject: {fileID: 11400000, guid: f432dbcdb7f3ea0448a58954eeb10ff4,
     type: 2}
 --- !u!4 &1346012425
 Transform:
@@ -647,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411939118}
   - component: {fileID: 1411939117}
+  - component: {fileID: 1411939119}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -697,13 +712,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411939116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000010554959, y: 3.2796414, z: -9.135321}
+  m_LocalPosition: {x: 0, y: 2.2000003, z: -9.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1227554109}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411939119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411939116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c655b78e5ee54fb98d41219d73c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 1411939117}
 --- !u!1001 &1611856125
 PrefabInstance:
   m_ObjectHideFlags: 0

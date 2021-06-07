@@ -10,6 +10,7 @@ namespace Tank
         private float InputMovement;
         private float InputTurn;
         private Vector3 Movement;
+        public MeshRenderer[] childs;
         private void Update()
         {
             InputMovement = joystick.Vertical;
@@ -34,6 +35,13 @@ namespace Tank
         public void initializeView(TankController _tankController, FixedJoystick _fixedJoystick) {
             tankController = _tankController;
             joystick = _fixedJoystick;
+        }
+        public void ChangeColor(Material material)
+        {
+            for (int i = 0; i < childs.Length; i++)
+            {
+                childs[i].material = material;
+            }
         }
     }
 }

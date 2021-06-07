@@ -11,7 +11,9 @@ namespace Tank
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
             tankView.initializeView(this,joystick);
-            Debug.Log("Tank View Created", tankView);
+            CameraController.GetInstance();
+            CameraController.Instance.SetTarget(tankView.transform);
+            tankView.ChangeColor(tankModel.material);
         }
     }
 }

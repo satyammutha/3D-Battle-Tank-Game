@@ -1,4 +1,6 @@
-﻿namespace Tank
+﻿using UnityEngine;
+
+namespace Tank
 {
     public class TankModel
     {
@@ -8,6 +10,7 @@
         public float rotationSpeed { get; private set; }
         public float health { get; private set; }
         public float damage { get; private set; }
+        public Material material { get; private set; }
 
         public TankScriptableObject tankScriptableObject;
         public TankModel(TankScriptableObject tankScriptableObject)
@@ -18,6 +21,7 @@
             rotationSpeed = tankScriptableObject.rotationSpeed;
             health = tankScriptableObject.health;
             damage = tankScriptableObject.damage;
+            material = tankScriptableObject.material;
         }
     }
 }

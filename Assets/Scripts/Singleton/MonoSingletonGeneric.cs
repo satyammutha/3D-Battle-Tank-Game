@@ -2,25 +2,25 @@
 
 public class MonoSingletonGeneric<T> : MonoBehaviour where T:MonoBehaviour
 {
-    static T instance;
+    public static T Instance;
     static object m_lock = new Object();
 
     public static T GetInstance()
     {
         lock (m_lock)
         {
-            if(instance == null)
+            if(Instance == null)
             {
-                instance = FindObjectOfType<T>();
-                if(instance == null)
+                Instance = FindObjectOfType<T>();
+                if(Instance == null)
                 {
                     GameObject obj = new GameObject();
                     obj.name = typeof(T).ToString();
-                    instance = obj.AddComponent<T>();
+                    Instance = obj.AddComponent<T>();
                     DontDestroyOnLoad(obj);
                 }
             }
         }
-        return instance;
+        return Instance;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Cinemachine;
 namespace Tank
 {
     public class TankService : MonoSingletonGeneric<TankService>
@@ -7,7 +7,6 @@ namespace Tank
         [SerializeField] private FixedJoystick joystick;
         public TankScriptableObject tankScriptableObject;
         private TankModel TankModel;
-
         private void Start()
         {
             StartGame();
@@ -23,7 +22,7 @@ namespace Tank
         {
             TankModel model = new TankModel(tankScriptableObject);
             TankModel = model;
-            TankController tank = new TankController(model, tankScriptableObject.tankView,joystick);
+            TankController tank = new TankController(model, tankScriptableObject.tankView, joystick);
             return tank;
         }
     }

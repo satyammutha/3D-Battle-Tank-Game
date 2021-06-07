@@ -430,5 +430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a04e43a65833fc439c53ca1c5161b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
   TankRigidbody: {fileID: 5411650614310768597}
+  childs:
+  - {fileID: 5411650615320417935}
+  - {fileID: 5411650615320417929}
+  - {fileID: 5411650615320417927}
+  - {fileID: 5411650615320417933}
