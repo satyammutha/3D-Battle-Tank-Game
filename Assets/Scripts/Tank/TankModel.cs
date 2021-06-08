@@ -13,7 +13,7 @@ namespace Tank
         public Material material { get; private set; }
 
         public TankScriptableObject tankScriptableObject;
-        public TankModel(TankScriptableObject tankScriptableObject)
+        public TankModel(TankScriptableObject tankScriptableObject, TankScriptableObjectList tankList)
         {
             tankTypes = tankScriptableObject.tankTypes;
             tankName = tankScriptableObject.tankName;

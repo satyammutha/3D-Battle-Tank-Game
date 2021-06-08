@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 100499690}
-  tankScriptableObject: {fileID: 11400000, guid: f432dbcdb7f3ea0448a58954eeb10ff4,
+  tankScriptableObjectList: {fileID: 11400000, guid: 0575788cc291a3f43b8a431f4559900a,
     type: 2}
 --- !u!4 &1346012425
 Transform:

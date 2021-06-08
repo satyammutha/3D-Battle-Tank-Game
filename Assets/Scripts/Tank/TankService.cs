@@ -5,7 +5,8 @@ namespace Tank
     public class TankService : MonoSingletonGeneric<TankService>
     {
         [SerializeField] private FixedJoystick joystick;
-        public TankScriptableObject tankScriptableObject;
+        [SerializeField] private TankScriptableObjectList tankScriptableObjectList;
+        private TankScriptableObject tankScriptableObject;
         private TankModel TankModel;
         private void Start()
         {
@@ -20,7 +21,9 @@ namespace Tank
         }
         private TankController CreateNewTank()
         {
-            TankModel model = new TankModel(tankScriptableObject);
+            int random = Random.Range(0, tankScriptableObjectList.tankList.Length);
+            tankScriptableObject = tankScriptableObjectList.tankList[random];
+            TankModel model = new TankModel(tankScriptableObject, tankScriptableObjectList);
             TankModel = model;
             TankController tank = new TankController(model, tankScriptableObject.tankView, joystick);
             return tank;
