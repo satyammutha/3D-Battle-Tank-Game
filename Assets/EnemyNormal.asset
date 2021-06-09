@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fb3be22990a5841bcd41c6fef67927, type: 3}
+  m_Name: EnemyNormal
+  m_EditorClassIdentifier: 
+  enemyTypes: 2
+  enemyName: EnemyNormal
+  movementSpeed: 20
+  rotationSpeed: 50
+  health: 100
+  damage: 0
+  material: {fileID: 2100000, guid: 87d2e70ca18454e4f855f8d99afb32e3, type: 2}
+  enemyView: {fileID: 6693148701290954126, guid: 0ce9326d995683c449a0110cf50b07f7,
+    type: 3}

@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyController : MonoBehaviour
+﻿using UnityEngine;
+namespace Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyController
     {
-        
-    }
+        public EnemyModel enemyModel { get; private set; }
+        public EnemyView enemyView { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public EnemyController(EnemyModel _enemyModel, EnemyView _enemyView)
+        {
+            enemyModel = _enemyModel;
+            enemyView = GameObject.Instantiate<EnemyView>(_enemyView);
+            enemyView.initializeView(this);
+            enemyView.ChangeColor(enemyModel.material);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Enemy
 {
-    public enum EmenyTypes
+    public enum EnemyTypes
     {
         None,
         Lazy,
