@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Cinemachine;
 
-public class CameraController : MonoSingletonGeneric<CameraController>
+public class CameraController: MonoSingletonGeneric<CameraController>
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     public void SetTarget(Transform target)

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: EnemyScriptableObjectList
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyScriptableObjectList
+  m_EditorClassIdentifier: Assembly-CSharp:EnemySObj:EnemyScriptableObjectList
   enemyList:
   - {fileID: 11400000, guid: d3ca607abb511a74987c065516608a33, type: 2}
   - {fileID: 11400000, guid: d328fc2cb8fed9548acd53a3bfd770b4, type: 2}

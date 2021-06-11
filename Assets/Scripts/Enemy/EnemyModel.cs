@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using EnemySObj;
+using UnityEngine;
 namespace Enemy
 {
-    public class EnemyModel : MonoBehaviour
+    public class EnemyModel
     {
         public EnemyTypes enemyTypes { get; private set; }
         public string enemyName { get; private set; }
@@ -10,6 +11,8 @@ namespace Enemy
         public float health { get; private set; }
         public float damage { get; private set; }
         public Material material { get; private set; }
+        public EnemyScriptableObject EnemyScriptableObject { get; }
+        public EnemyScriptableObjectList EnemyScriptableObjectList { get; }
 
         public EnemyScriptableObject enemyScriptableObject;
         public EnemyModel(EnemyScriptableObject enemyScriptableObject, EnemyScriptableObjectList enemyList)
@@ -22,5 +25,6 @@ namespace Enemy
             damage = enemyScriptableObject.damage;
             material = enemyScriptableObject.material;
         }
+
     }
 }

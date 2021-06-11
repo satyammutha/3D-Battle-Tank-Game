@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Bullet;
+using UnityEngine;
 namespace Enemy
 {
     public class EnemyController
@@ -12,6 +13,12 @@ namespace Enemy
             enemyView = GameObject.Instantiate<EnemyView>(_enemyView);
             enemyView.initializeView(this);
             enemyView.ChangeColor(enemyModel.material);
+        }
+
+        public void OnCollisionWithBullet(BulletView bullet)
+        {
+            EnemyService.GetInstance().DestroyEnemy(this);
+            BulletService.GetInstance().DestroyBullet(bullet.bulletController);
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Tank
         private float InputTurn;
         private Vector3 Movement;
         public MeshRenderer[] childs;
+        public Transform BulletShootPoint;
+        private float canFire = 0f;
         private void Update()
         {
             InputMovement = joystick.Vertical;
@@ -20,7 +22,18 @@ namespace Tank
         {
             Move();
             Turn();
+            ShootBullet();
         }
+
+        private void ShootBullet()
+        {
+            if (Input.GetKeyUp(KeyCode.F) && canFire < Time.time)
+            {
+                canFire = tankController.tankModel.fireRate + Time.time;
+                tankController.ShootBullet();
+            }
+        }
+
         private void Move()
         {
             Movement = transform.forward * InputMovement * tankController.tankModel.movementSpeed * Time.deltaTime;

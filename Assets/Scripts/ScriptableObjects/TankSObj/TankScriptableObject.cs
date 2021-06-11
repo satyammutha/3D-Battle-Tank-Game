@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using BulletSObj;
 using Tank;
 
 [CreateAssetMenu(fileName = "TankScriptableObject", menuName = "ScriptableObjects/Tank/NewTankScriptableObjects")]
@@ -12,6 +13,8 @@ public class TankScriptableObject : ScriptableObject
     public float damage;
     public Material material;
     public TankView tankView;
+    public float fireRate;
+    public BulletScriptableObject bulletType;
 }
 [CreateAssetMenu(fileName = "TankScriptableObjectList", menuName = "ScriptableObjects/Tank/NewTankScriptableObjectsList")]
 public class TankScriptableObjectList : ScriptableObject

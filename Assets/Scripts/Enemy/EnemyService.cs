@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using EnemySObj;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Enemy
 {
-    public class EnemyServices : MonoSingletonGeneric<EnemyServices>
+    public class EnemyService : MonoSingletonGeneric<EnemyService>
     {
         [SerializeField] private EnemyScriptableObjectList enemyScriptableObjectList;
         private EnemyScriptableObject enemyScriptableObject;
         private EnemyModel EnemyModel;
+        private List<EnemyController> enemies = new List<EnemyController>();
         private void Start()
         {
             BeginEnemyCreation();
@@ -18,6 +19,11 @@ namespace Enemy
             {
                 CreateNewEnemy();
             }
+        }
+
+        public void DestroyEnemy(EnemyController enemyController)
+        {
+            
         }
 
         private void BeginEnemyCreation()

@@ -8,6 +8,7 @@ namespace Tank
         [SerializeField] private TankScriptableObjectList tankScriptableObjectList;
         private TankScriptableObject tankScriptableObject;
         private TankModel TankModel;
+        public int tankSpawnDelay = 3;
         private void Start()
         {
             StartGame();

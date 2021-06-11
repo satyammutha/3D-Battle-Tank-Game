@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Bullet;
+using BulletSObj;
 namespace Tank
 {
     public class TankController
@@ -13,6 +15,22 @@ namespace Tank
             tankView.initializeView(this,joystick);
             CameraController.GetInstance().SetTarget(tankView.transform);
             tankView.ChangeColor(tankModel.material);
+        }
+        public void ShootBullet()
+        {
+            BulletService.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
+        }
+        public Vector3 GetFiringPosition()
+        {
+            return tankView.BulletShootPoint.position;
+        }
+        public Quaternion GetFiringAngle()
+        {
+            return tankView.transform.rotation;
+        }
+        public BulletScriptableObject GetBullet()
+        {
+            return tankModel.bulletType;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BulletSObj;
+using UnityEngine;
 
 namespace Tank
 {
@@ -11,6 +12,10 @@ namespace Tank
         public float health { get; private set; }
         public float damage { get; private set; }
         public Material material { get; private set; }
+        public float fireRate { get; private set; }
+        public BulletScriptableObject bulletType { get; private set; }
+        public int bulletsFired { get; private set; }
+        public int enemiesKilled { get; private set; }
 
         public TankScriptableObject tankScriptableObject;
         public TankModel(TankScriptableObject tankScriptableObject, TankScriptableObjectList tankList)
@@ -22,6 +27,8 @@ namespace Tank
             health = tankScriptableObject.health;
             damage = tankScriptableObject.damage;
             material = tankScriptableObject.material;
+            fireRate = tankScriptableObject.fireRate;
+            bulletType = tankScriptableObject.bulletType;
         }
     }
 }
