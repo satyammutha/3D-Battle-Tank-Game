@@ -13,24 +13,12 @@ namespace Tank
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
             tankView.initializeView(this,joystick);
-            CameraController.GetInstance().SetTarget(tankView.transform);
             tankView.ChangeColor(tankModel.material);
+            CameraController.GetInstance().SetTarget(tankView.transform);
         }
         public void ShootBullet()
         {
-            BulletService.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
-        }
-        public Vector3 GetFiringPosition()
-        {
-            return tankView.BulletShootPoint.position;
-        }
-        public Quaternion GetFiringAngle()
-        {
-            return tankView.transform.rotation;
-        }
-        public BulletScriptableObject GetBullet()
-        {
-            return tankModel.bulletType;
+            BulletService.GetInstance().CreateBullet(tankView.BulletShootPoint.position, tankView.transform.rotation, tankModel.bulletType);
         }
     }
 }

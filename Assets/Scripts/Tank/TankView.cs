@@ -24,7 +24,6 @@ namespace Tank
             Turn();
             ShootBullet();
         }
-
         private void ShootBullet()
         {
             if (Input.GetKeyUp(KeyCode.F) && canFire < Time.time)
@@ -33,7 +32,6 @@ namespace Tank
                 tankController.ShootBullet();
             }
         }
-
         private void Move()
         {
             Movement = transform.forward * InputMovement * tankController.tankModel.movementSpeed * Time.deltaTime;

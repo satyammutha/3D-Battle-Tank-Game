@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Enemy;
+using BulletSObj;
 namespace EnemySObj
 {
     [CreateAssetMenu(fileName = "EnemyScriptableObject", menuName = "ScriptableObjects/Enemy/NewEnemyScriptableObjects")]
@@ -13,6 +14,10 @@ namespace EnemySObj
         public float damage;
         public Material material;
         public EnemyView enemyView;
+        public BulletScriptableObject bulletType;
+        public float patrollingRadius;
+        public float patrolTime;
+        public float rateFire;
     }
     [CreateAssetMenu(fileName = "EnemyScriptableObjectList", menuName = "ScriptableObjects/Enemy/NewEnemyScriptableObjectsList")]
     public class EnemyScriptableObjectList : ScriptableObject

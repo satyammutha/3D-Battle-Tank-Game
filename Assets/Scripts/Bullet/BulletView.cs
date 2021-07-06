@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using IDamagableNS;
+using System.Collections;
 using UnityEngine;
 namespace Bullet
 {
@@ -62,6 +63,17 @@ namespace Bullet
             Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.main.duration);
             Destroy(gameObject);
         }
-
+        private void OnCollisionEnter(Collision other)
+        {
+            if (bulletController != null)
+            {
+                IDamagable iDamagable = other.gameObject.GetComponent<IDamagable>();
+                if (iDamagable != null)
+                {
+                    iDamagable.TakeDamage(bulletController.bulletModel.damage);
+                }
+                BulletService.GetInstance().DestroyBullet(bulletController);
+            }
+        }
     }
 }

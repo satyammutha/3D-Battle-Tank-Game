@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0, y: 1.8, z: -2.11}
+  ShoulderOffset: {x: 0, y: 4.3, z: -7.45}
   VerticalArmLength: 0.4
   CameraSide: 0.5
   CameraDistance: 7
@@ -520,7 +520,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 8ce5d020a687c314891341b4126d1de2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -668,6 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScriptableObjectList: {fileID: 11400000, guid: 9fa2ac487103efd4cb0f46fa98cd7882,
     type: 2}
+  enemyScriptableObject: {fileID: 0}
 --- !u!114 &1346012427
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,6 @@ namespace Bullet
         public float speed { get; private set; }
         public float damage { get; private set; }
         public BulletTypes type;
-        private BulletController bulletController;
         public BulletScriptableObject bullet;
         public BulletModel(BulletScriptableObject bullet)
         {

@@ -18,7 +18,7 @@ namespace Tank
         public int enemiesKilled { get; private set; }
 
         public TankScriptableObject tankScriptableObject;
-        public TankModel(TankScriptableObject tankScriptableObject, TankScriptableObjectList tankList)
+        public TankModel(TankScriptableObject tankScriptableObject)
         {
             tankTypes = tankScriptableObject.tankTypes;
             tankName = tankScriptableObject.tankName;

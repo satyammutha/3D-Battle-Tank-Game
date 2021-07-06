@@ -24,7 +24,7 @@ namespace Tank
         {
             int random = Random.Range(0, tankScriptableObjectList.tankList.Length);
             tankScriptableObject = tankScriptableObjectList.tankList[random];
-            TankModel model = new TankModel(tankScriptableObject, tankScriptableObjectList);
+            TankModel model = new TankModel(tankScriptableObject);
             TankModel = model;
             TankController tank = new TankController(model, tankScriptableObject.tankView, joystick);
             return tank;
