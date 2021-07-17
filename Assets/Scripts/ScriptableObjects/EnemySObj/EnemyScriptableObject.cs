@@ -15,9 +15,8 @@ namespace EnemySObj
         public Material material;
         public EnemyView enemyView;
         public BulletScriptableObject bulletType;
-        public float patrollingRadius;
-        public float patrolTime;
         public float rateFire;
+        public Vector3 locationToDeploy;
     }
     [CreateAssetMenu(fileName = "EnemyScriptableObjectList", menuName = "ScriptableObjects/Enemy/NewEnemyScriptableObjectsList")]
     public class EnemyScriptableObjectList : ScriptableObject

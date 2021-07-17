@@ -65,15 +65,7 @@ namespace Bullet
         }
         private void OnCollisionEnter(Collision other)
         {
-            if (bulletController != null)
-            {
-                IDamagable iDamagable = other.gameObject.GetComponent<IDamagable>();
-                if (iDamagable != null)
-                {
-                    iDamagable.TakeDamage(bulletController.bulletModel.damage);
-                }
-                BulletService.GetInstance().DestroyBullet(bulletController);
-            }
+            Debug.Log("Collides");
         }
     }
 }

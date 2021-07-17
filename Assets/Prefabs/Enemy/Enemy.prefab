@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 374284503281632638}
   - component: {fileID: 3910904456005111239}
   - component: {fileID: 6693148701290954126}
+  - component: {fileID: -2238017884040036959}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -209,7 +210,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &3910904456005111239
 BoxCollider:
@@ -239,6 +240,45 @@ MonoBehaviour:
   enemyRigidbody: {fileID: 374284503281632638}
   mesh: {fileID: 6261547008736206792}
   shootingPoint: {fileID: 1953966802924969604}
+  agent: {fileID: -2238017884040036959}
+  player: {fileID: 5411650615318647839, guid: 3c4e4245a1ec3514fab48d2846b23efe, type: 3}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
+  walkPoint: {x: 33, y: 0, z: 5.89}
+  walkPointSet: 0
+  walkPointRange: 20
+  timeBetweenAttacks: 3
+  alreadyAttacked: 0
+  sightRange: 30
+  attackRange: 20
+  playerInSightRange: 0
+  playerInAttackRange: 0
+--- !u!195 &-2238017884040036959
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150802933680535787}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7184796363081809260
 GameObject:
   m_ObjectHideFlags: 0

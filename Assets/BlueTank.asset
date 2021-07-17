@@ -21,5 +21,5 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}
   tankView: {fileID: -5082949513263328896, guid: 3c4e4245a1ec3514fab48d2846b23efe,
     type: 3}
-  fireRate: 0
+  fireRate: 5
   bulletType: {fileID: 11400000, guid: 50297b4009fb4964ebe8014356ba2832, type: 2}

@@ -17,7 +17,10 @@ MonoBehaviour:
   movementSpeed: 20
   rotationSpeed: 40
   health: 50
-  damage: 50
+  damage: 25
   material: {fileID: 2100000, guid: e7df269b1d6121e4787b2f27aab18dbe, type: 2}
   enemyView: {fileID: 6693148701290954126, guid: 0ce9326d995683c449a0110cf50b07f7,
     type: 3}
+  bulletType: {fileID: 11400000, guid: 50297b4009fb4964ebe8014356ba2832, type: 2}
+  rateFire: 8
+  locationToDeploy: {x: 33.46, y: 1, z: 3.31}

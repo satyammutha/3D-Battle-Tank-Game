@@ -10,8 +10,22 @@ namespace Enemy
         [SerializeField] private Rigidbody enemyRigidbody;
         public MeshRenderer mesh;
         public Transform shootingPoint;
-        public NavMeshAgent navMeshAgent { get; private set; }
+        
+        public NavMeshAgent agent;
+        public Transform player;
+        public LayerMask whatIsGround, whatIsPlayer;
+        public Vector3 walkPoint;
+        public bool walkPointSet;
+        public float walkPointRange;
+        //public float timeBetweenAttacks;
+        public bool alreadyAttacked;
+        public float sightRange, attackRange;
+        public bool playerInSightRange, playerInAttackRange;
 
+        private void Update()
+        {
+            enemyController.CheckSightNAttack();
+        }        
         public void initializeView(EnemyController _enemyController)
         {
             enemyController = _enemyController;
@@ -20,14 +34,27 @@ namespace Enemy
         {
             mesh.material = material;
         }
-        public void TakeDamage(float damage)
-        {
-            enemyController.ApplyDamage(damage);
-        }
         public void DestroyView()
         {
             enemyController = null;
             Destroy(this.gameObject);
+        }
+
+        internal void callInvokeInView()
+        {
+            Invoke(nameof(callingResetAttack),  enemyController.enemyModel.rateFire); //timeBetweenAttacks
+        }
+        public void callingResetAttack()
+        {
+            enemyController.ResetAttack();
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                enemyController.ApplyDamage();
+            }
         }
     }
 }

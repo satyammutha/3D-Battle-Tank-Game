@@ -6,10 +6,10 @@ namespace Tank
     {
         private TankController tankController;
         private FixedJoystick joystick;
-        [SerializeField] private Rigidbody TankRigidbody;
-        private float InputMovement;
-        private float InputTurn;
-        private Vector3 Movement;
+        public Rigidbody TankRigidbody;
+        public float InputMovement;
+        public float InputTurn;
+        public Vector3 Movement;
         public MeshRenderer[] childs;
         public Transform BulletShootPoint;
         private float canFire = 0f;
@@ -20,8 +20,8 @@ namespace Tank
         }
         private void FixedUpdate()
         {
-            Move();
-            Turn();
+            tankController.Move();
+            tankController.Turn();
             ShootBullet();
         }
         private void ShootBullet()
@@ -32,27 +32,9 @@ namespace Tank
                 tankController.ShootBullet();
             }
         }
-        private void Move()
-        {
-            Movement = transform.forward * InputMovement * tankController.tankModel.movementSpeed * Time.deltaTime;
-            TankRigidbody.MovePosition(TankRigidbody.position + Movement);
-        }
-        private void Turn()
-        {
-            float turn = InputTurn * tankController.tankModel.rotationSpeed * Time.deltaTime;
-            Quaternion TurnRotation = Quaternion.Euler(0f, turn, 0f);
-            TankRigidbody.MoveRotation(TankRigidbody.rotation * TurnRotation);
-        }
-        public void initializeView(TankController _tankController, FixedJoystick _fixedJoystick) {
+        public void InitializeView(TankController _tankController, FixedJoystick _fixedJoystick) {
             tankController = _tankController;
             joystick = _fixedJoystick;
-        }
-        public void ChangeColor(Material material)
-        {
-            for (int i = 0; i < childs.Length; i++)
-            {
-                childs[i].material = material;
-            }
         }
     }
 }

@@ -12,13 +12,31 @@ namespace Tank
         {
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
-            tankView.initializeView(this,joystick);
-            tankView.ChangeColor(tankModel.material);
+            tankView.InitializeView(this,joystick);
+            ChangeColor(tankModel.material);
             CameraController.GetInstance().SetTarget(tankView.transform);
         }
         public void ShootBullet()
         {
             BulletService.GetInstance().CreateBullet(tankView.BulletShootPoint.position, tankView.transform.rotation, tankModel.bulletType);
+        }
+        public void Move()
+        {
+            tankView.Movement = tankView.transform.forward * tankView.InputMovement * tankModel.movementSpeed * Time.deltaTime;
+            tankView.TankRigidbody.MovePosition(tankView.TankRigidbody.position + tankView.Movement);
+        }
+        public void Turn()
+        {
+            float turn = tankView.InputTurn * tankModel.rotationSpeed * Time.deltaTime;
+            Quaternion TurnRotation = Quaternion.Euler(0f, turn, 0f);
+            tankView.TankRigidbody.MoveRotation(tankView.TankRigidbody.rotation * TurnRotation);
+        }
+        public void ChangeColor(Material material)
+        {
+            for (int i = 0; i < tankView.childs.Length; i++)
+            {
+                tankView.childs[i].material = material;
+            }
         }
     }
 }

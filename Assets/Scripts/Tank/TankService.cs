@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Cinemachine;
 namespace Tank
 {
     public class TankService : MonoSingletonGeneric<TankService>

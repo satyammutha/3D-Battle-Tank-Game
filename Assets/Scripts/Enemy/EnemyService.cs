@@ -9,6 +9,7 @@ namespace Enemy
         public EnemyScriptableObject enemyScriptableObject;
         private EnemyModel EnemyModel;
         private List<EnemyController> enemies = new List<EnemyController>();
+        private EnemyController enemyController;
         private void Start()
         {
             BeginEnemyCreation();
@@ -19,6 +20,10 @@ namespace Enemy
             {
                 CreateNewEnemy();
             }
+        }
+        public EnemyController GetEnemyController()
+        {
+            return enemyController;
         }
         public void DestroyEnemy(EnemyController enemyController)
         {
@@ -34,7 +39,7 @@ namespace Enemy
         }
         private void BeginEnemyCreation()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 CreateNewEnemy();
             }

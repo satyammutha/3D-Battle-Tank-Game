@@ -19,6 +19,8 @@ namespace Enemy
         public float rateFire { get; private set; }
         public EnemyScriptableObject EnemyScriptableObject { get; }
         public EnemyScriptableObjectList EnemyScriptableObjectList { get; }
+        public Vector3 locationToDeploy { get; private set; }
+        public BulletScriptableObject bulletType { get; private set; }
 
         public EnemyScriptableObject enemyScriptableObject;
         public EnemyModel(EnemyScriptableObject enemyScriptableObject)
@@ -31,9 +33,9 @@ namespace Enemy
             damage = enemyScriptableObject.damage;
             material = enemyScriptableObject.material;
             bullet = enemyScriptableObject.bulletType;
-            patrollingRadius = enemyScriptableObject.patrollingRadius;
-            patrolTime = enemyScriptableObject.patrolTime;
             rateFire = enemyScriptableObject.rateFire;
+            locationToDeploy = enemyScriptableObject.locationToDeploy;
+            bulletType = enemyScriptableObject.bulletType;
         }
         public void SetEnemyController(EnemyController _enemyController)
         {

@@ -14,7 +14,6 @@ namespace Bullet
             BulletController bulletController = new BulletController(bullet.bulletView, bulletModel, position, rotation);
             bullets.Add(bulletController);
         }
-
         public void DestroyBullet(BulletController bullet)
         {
             for (int i = 0; i < bullets.Count; i++)
