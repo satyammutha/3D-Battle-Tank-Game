@@ -11,7 +11,6 @@ namespace Bullet
         public BulletModel(BulletScriptableObject bullet)
         {
             speed = bullet.speed;
-            damage = bullet.damage;
             type = bullet.bulletType;
         }
     }

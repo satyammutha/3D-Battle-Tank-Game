@@ -11,10 +11,4 @@ namespace BulletSObj
         public float damage;
         public BulletTypes bulletType;
     }
-    [CreateAssetMenu(fileName = "BulletScriptableObjectList", menuName = "ScriptableObjects/Bullet/NewBulletScriptableObjectList")]
-    public class BulletSOList : ScriptableObject
-    {
-        public BulletScriptableObject[] bulletsTypes;
-
-    }
 }

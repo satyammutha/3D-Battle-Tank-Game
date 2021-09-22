@@ -61,11 +61,14 @@ namespace Bullet
             m_ExplosionParticles.Play();
             m_ExplosionAudio.Play();
             Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.main.duration);
+            IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
+            if (damagable != null)
+            {
+                damagable.TakeDamage(bulletController.bulletModel.damage);
+                Debug.Log("Bullet and Enemy Collides");
+            }
+            BulletService.GetInstance().DestroyBullet(bulletController);
             Destroy(gameObject);
-        }
-        private void OnCollisionEnter(Collision other)
-        {
-            Debug.Log("Collides");
         }
     }
 }

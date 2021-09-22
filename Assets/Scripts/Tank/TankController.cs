@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using Bullet;
 using BulletSObj;
+using System;
+
 namespace Tank
 {
     public class TankController
     {
-        public TankModel tankModel { get; private set; }
+        public TankModel tankModel { get; set; }
         public TankView tankView { get; private set; }
 
         public TankController(TankModel _tankModel, TankView _tankView, FixedJoystick joystick)
@@ -37,6 +39,19 @@ namespace Tank
             {
                 tankView.childs[i].material = material;
             }
+        }
+        public void ApplyDamage(float damage)
+        {
+            tankModel.health = tankModel.health - damage;
+            if (tankModel.health < 1)
+            {
+                Dead();
+            }
+        }
+
+        private void Dead()
+        {
+            TankService.GetInstance().enabled = false;
         }
     }
 }

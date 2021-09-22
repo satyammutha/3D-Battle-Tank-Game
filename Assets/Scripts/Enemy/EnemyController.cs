@@ -16,16 +16,7 @@ namespace Enemy
             enemyModel.SetEnemyController(this);
             enemyView.initializeView(this);
         }
-        public void CheckSightNAttack()
-        {
-            enemyView.playerInSightRange = Physics.CheckSphere(enemyView.transform.position, enemyView.sightRange, enemyView.whatIsPlayer);
-            enemyView.playerInAttackRange = Physics.CheckSphere(enemyView.transform.position, enemyView.attackRange, enemyView.whatIsPlayer);
-
-            if (!enemyView.playerInSightRange && !enemyView.playerInAttackRange) Patroling();
-            if (enemyView.playerInSightRange && !enemyView.playerInAttackRange) ChasePlayer();
-            if (enemyView.playerInSightRange && enemyView.playerInAttackRange) AttackPlayer();
-        }
-        private void Patroling()
+        public void Patrolling()
         {
             if (!enemyView.walkPointSet) SearchWalkPoint();
             if (enemyView.walkPointSet)
@@ -52,11 +43,11 @@ namespace Enemy
                 enemyView.walkPointSet = true;
             }
         }
-        private void ChasePlayer()
+        public void ChasePlayer()
         {
             enemyView.agent.SetDestination(enemyView.player.position);
         }
-        private void AttackPlayer()
+        public void AttackPlayer()
         {
             //make sure enemy doesnt move
             enemyView.agent.SetDestination(enemyView.player.position);
@@ -66,7 +57,6 @@ namespace Enemy
                 //Attack Code
                 ShootBullet();
                 enemyView.alreadyAttacked = true;
-                enemyView.callInvokeInView();
             }
         }
         public void ResetAttack()
@@ -77,16 +67,13 @@ namespace Enemy
         {
             BulletService.GetInstance().CreateBullet(enemyView.shootingPoint.position, enemyView.transform.rotation, enemyModel.bulletType);
         }
-        public void ApplyDamage()
+        public void ApplyDamage(float damage)
         {
-            if (enemyModel.health <= 0) return;
-
-            if (enemyModel.health - enemyModel.damage <= 0)
+            enemyModel.health = enemyModel.health - damage;
+            if (enemyModel.health < 1)
             {
                 Dead();
             }
-            else
-                enemyModel.health -= enemyModel.damage;
         }
         private void Dead()
         {

@@ -25,18 +25,7 @@ namespace Enemy
         {
             return enemyController;
         }
-        public void DestroyEnemy(EnemyController enemyController)
-        {
-            enemyController.DestroyController();
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                if (enemyController == enemies[i])
-                {
-                    enemies[i] = null;
-                    enemies.Remove(enemies[i]);
-                }
-            }
-        }
+        
         private void BeginEnemyCreation()
         {
             for (int i = 0; i < 2; i++)
@@ -52,6 +41,19 @@ namespace Enemy
             EnemyModel = model;
             EnemyController enemy = new EnemyController(model, enemyScriptableObject.enemyView);
             enemies.Add(enemy);
+        }
+
+        public void DestroyEnemy(EnemyController enemyController)
+        {
+            enemyController.DestroyController();
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemyController == enemies[i])
+                {
+                    enemies[i] = null;
+                    enemies.Remove(enemies[i]);
+                }
+            }
         }
     }
 }

@@ -1,12 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using IDamagableNS;
+using Enemy.States;
+using System;
 
 namespace Enemy
 {
-    public class EnemyView : MonoBehaviour
+    public class EnemyView : MonoBehaviour, IDamagable
     {
-        private EnemyController enemyController;
+        [HideInInspector]public EnemyController enemyController;
         [SerializeField] private Rigidbody enemyRigidbody;
         public MeshRenderer mesh;
         public Transform shootingPoint;
@@ -17,15 +19,42 @@ namespace Enemy
         public Vector3 walkPoint;
         public bool walkPointSet;
         public float walkPointRange;
-        //public float timeBetweenAttacks;
         public bool alreadyAttacked;
         public float sightRange, attackRange;
         public bool playerInSightRange, playerInAttackRange;
 
-        private void Update()
+        [HideInInspector] public EnemyPatrolling patrollingState;
+        [HideInInspector] public EnemyChasing chasingState;
+        [HideInInspector] public EnemyAttacking attackingState;
+        private StateTypes initState;
+        [HideInInspector] public StateTypes activeState;
+        [HideInInspector] public EnemyStates currentState;
+
+        private void Start()
         {
-            enemyController.CheckSightNAttack();
-        }        
+            InitStates();
+        }
+
+        private void InitStates()
+        {
+            switch (initState)
+            {
+                case StateTypes.Patrolling:
+                    currentState = patrollingState;
+                    break;
+                case StateTypes.Chasing:
+                    currentState = chasingState;
+                    break;
+                case StateTypes.Attacking:
+                    currentState = attackingState;
+                    break;
+                default:
+                    currentState = null;
+                    break;
+            }
+            currentState.OnEnterState();
+        }
+   
         public void initializeView(EnemyController _enemyController)
         {
             enemyController = _enemyController;
@@ -40,21 +69,10 @@ namespace Enemy
             Destroy(this.gameObject);
         }
 
-        internal void callInvokeInView()
+        public void TakeDamage(float damage)
         {
-            Invoke(nameof(callingResetAttack),  enemyController.enemyModel.rateFire); //timeBetweenAttacks
-        }
-        public void callingResetAttack()
-        {
-            enemyController.ResetAttack();
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Bullet"))
-            {
-                enemyController.ApplyDamage();
-            }
+            Debug.Log("IN EnemyView Takedamage Func Damage:" + damage);
+            enemyController.ApplyDamage(damage);
         }
     }
 }
